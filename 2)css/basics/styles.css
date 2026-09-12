@@ -1,0 +1,11 @@
+body{
+    margin:0px;
+    background-color: lightblue;
+    border: 1px black solid;
+}
+h1{
+    background-color: bisque;
+    width: 50%;
+    border:1px solid black;
+    letter-spacing: 10px;
+}

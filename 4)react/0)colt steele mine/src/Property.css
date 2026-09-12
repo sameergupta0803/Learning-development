@@ -1,0 +1,7 @@
+.Property{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    border: 1px solid black;
+}
