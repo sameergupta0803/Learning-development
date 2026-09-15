@@ -59,9 +59,9 @@ export const register = async (req, res) => {
     message: "User registered successfully",
     user: {
       username,
-      email,
+      email
     },
-    accessToken,
+    accessToken
   });
 };
 export const login = asyncHandler(async (req, res) => {
@@ -201,4 +201,19 @@ export const logoutAll = asyncHandler(async (req, res) => {
   res.status(200).json({
     message: "Logged out of all devices successfully",
   });
+});
+export const changePassword = asyncHandler(async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+  const user = await userModel.findById(req.user._id);
+  const isValidPassword = await user.isPasswordCorrect(oldPassword);
+  if (!isValidPassword) {
+    throw new ApiError(400, "Invalid old Password");
+  }
+  user.password = newPassword;
+  await user.save({ validateBeforeSave: false });
+  return res
+    .status(200)
+    .json({
+      message: "Password changed successfully",
+    });
 });

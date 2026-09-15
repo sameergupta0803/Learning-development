@@ -62,6 +62,7 @@ const Login = () => {
       <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={onLogin}>
         {buttonDisabled ? "Please fill all fields" : "Login"}
       </button>
+      <p className="mt-4 text-blue-500">Forgot your password? <Link href="/sendforgotpasswordemail" className='text-blue-300 hover:text-blue-700 underline'>Reset it</Link></p>
       <Link href="/signup" className='text-blue-500 hover:text-blue-700'>
         Don't have an account? Sign up
       </Link>
